@@ -11,7 +11,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1.0 - Presentation", "1.0 -
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "5.0 Tests", "5.0 Tests", "{A7AF7E64-F400-4579-9C3D-54A3DB33A309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductApi", "ProductApi\ProductApi.csproj", "{906956A8-05FC-427E-ABD0-BD71E269F33B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductApi", "ProductApi\ProductApi.csproj", "{906956A8-05FC-427E-ABD0-BD71E269F33B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2.0 - Application", "2.0 - Application", "{292EBD44-13AB-4670-BD54-D7C7EA9FAE9D}"
 EndProject
@@ -19,15 +19,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3.0 - Domain", "3.0 - Domai
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.0 - Infrastructure", "4.0 - Infrastructure", "{05374BEF-FAF2-49D0-BDFF-A86FF7458D94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Application", "ProdutosApi.Application\ProdutosApi.Application.csproj", "{09B2A791-9CBB-48BD-B7EE-C6CDAF876B2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Application", "ProdutosApi.Application\ProdutosApi.Application.csproj", "{09B2A791-9CBB-48BD-B7EE-C6CDAF876B2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Application.DTO", "ProdutosApi.Application.DTO\ProdutosApi.Application.DTO.csproj", "{A678264C-7E98-4579-B872-0BB9FDF9426D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Application.DTO", "ProdutosApi.Application.DTO\ProdutosApi.Application.DTO.csproj", "{A678264C-7E98-4579-B872-0BB9FDF9426D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Domain", "ProdutosApi.Domain\ProdutosApi.Domain.csproj", "{EF24ECBA-CC17-4A4E-B320-073B7113EC40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Domain", "ProdutosApi.Domain\ProdutosApi.Domain.csproj", "{EF24ECBA-CC17-4A4E-B320-073B7113EC40}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Infrastructure.CrossCutting", "ProdutosApi.Infrastructure.CrossCutting\ProdutosApi.Infrastructure.CrossCutting.csproj", "{598B9689-1DDB-427B-8820-946773CB8CF6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Infrastructure.CrossCutting", "ProdutosApi.Infrastructure.CrossCutting\ProdutosApi.Infrastructure.CrossCutting.csproj", "{598B9689-1DDB-427B-8820-946773CB8CF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Infrastructure.InfraDb", "ProdutosApi.Infrastructure.InfraDb\ProdutosApi.Infrastructure.InfraDb.csproj", "{51079174-B236-4B07-8EC8-D9086A41E113}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Infrastructure.InfraDb", "ProdutosApi.Infrastructure.InfraDb\ProdutosApi.Infrastructure.InfraDb.csproj", "{51079174-B236-4B07-8EC8-D9086A41E113}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Infrastructure.Ioc", "ProdutosApi.Infrastructure.Ioc\ProdutosApi.Infrastructure.Ioc.csproj", "{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -59,6 +61,10 @@ Global
 		{51079174-B236-4B07-8EC8-D9086A41E113}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{51079174-B236-4B07-8EC8-D9086A41E113}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{51079174-B236-4B07-8EC8-D9086A41E113}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -75,6 +81,7 @@ Global
 		{EF24ECBA-CC17-4A4E-B320-073B7113EC40} = {132B6205-D46B-48EB-A4FD-E45F9C3C804C}
 		{598B9689-1DDB-427B-8820-946773CB8CF6} = {05374BEF-FAF2-49D0-BDFF-A86FF7458D94}
 		{51079174-B236-4B07-8EC8-D9086A41E113} = {05374BEF-FAF2-49D0-BDFF-A86FF7458D94}
+		{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63} = {05374BEF-FAF2-49D0-BDFF-A86FF7458D94}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C313D33-4252-4428-8014-6D3BCEAE1226}
