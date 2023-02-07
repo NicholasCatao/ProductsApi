@@ -1,8 +1,10 @@
+using ProdutosApi.Infrastructure.CrossCutting.Model;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.Configure<FormatSettings>(builder.Configuration.GetSection("Formatting"));
+builder.Services.Configure<AppSettings>(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

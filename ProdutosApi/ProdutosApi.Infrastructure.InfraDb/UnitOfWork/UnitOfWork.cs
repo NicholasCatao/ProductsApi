@@ -1,4 +1,7 @@
-﻿namespace ProdutosApi.Infrastructure.InfraDb.UnitOfWork
+﻿using ProdutosApi.Domain.UoW;
+using ProdutosApi.Infrastructure.InfraDb.DbContext;
+
+namespace ProdutosApi.Infrastructure.InfraDb.UnitOfWork
 {
     public sealed class UnitOfWork : IUnitOfWork
     {

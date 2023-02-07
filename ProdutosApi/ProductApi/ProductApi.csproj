@@ -15,4 +15,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ProdutosApi.Infrastructure.CrossCutting\ProdutosApi.Infrastructure.CrossCutting.csproj" />
+  </ItemGroup>
+
 </Project>
