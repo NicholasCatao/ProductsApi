@@ -4,6 +4,7 @@ using ProdutosApi.Application.Mappers;
 using ProdutosApi.Application.Service;
 using ProdutosApi.Domain.Interfaces;
 using ProdutosApi.Domain.Services;
+using ProdutosApi.Domain.Validators;
 using ProdutosApi.Infrastructure.InfraDb.DbContext;
 using ProdutosApi.Infrastructure.InfraDb.Interfaces;
 using ProdutosApi.Infrastructure.InfraDb.Respository;
@@ -18,7 +19,7 @@ namespace ProdutosApi.Infrastructure.Ioc
             services.UseServices();
             services.UseRepositories();
             services.UserMappers();
-            //services.UseValidations();
+            services.UseValidations();
         }
 
         public static void UseApplications(this IServiceCollection services)
@@ -45,11 +46,9 @@ namespace ProdutosApi.Infrastructure.Ioc
         }
 
 
-        //public static void UseValidations(this IServiceCollection services)
-        //{
-        //    services.AddControllersWithViews().AddFluentValidation();
-        //    services.AddScoped<IValidator<Produto>, ProdutoValidation>();
-
-        //}
+        public static void UseValidations(this IServiceCollection services)
+        {
+            services.AddScoped<IProdutoValidator, ProdutoValidator>();
+        }
     }
 }

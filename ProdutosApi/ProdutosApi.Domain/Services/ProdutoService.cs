@@ -7,6 +7,7 @@ namespace ProdutosApi.Domain.Services
     public class ProdutoService : IProdutoService
     {
         private readonly IProdutoRepository _produtoRepository;
+
         public ProdutoService(IProdutoRepository produtoRepository)
         {
             _produtoRepository = produtoRepository;
@@ -14,6 +15,7 @@ namespace ProdutosApi.Domain.Services
 
         public async Task<IEnumerable<Produto>> ObterProdutosAsync()
         {
+
             return await _produtoRepository.ObterProdutosAsync();
         }
         public async Task<Produto> ObterProdutoAsync(int id)
@@ -21,7 +23,9 @@ namespace ProdutosApi.Domain.Services
             return await _produtoRepository.ObterProdutoAsync(id);
         }
         public async Task<int> CadastrarProdutoAsync(Produto produto)
-            => await _produtoRepository.CadastrarProdutoAsync(produto);
+        {
+            return await _produtoRepository.CadastrarProdutoAsync(produto);
+        }
 
         public async Task<bool> AlterarProdutoAsync(Produto produto, int id)
         {
