@@ -7,15 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation.AspNetCore" Version="11.2.2" />
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <ProjectReference Include="..\ProdutosApi.Application.DTO\ProdutosApi.Application.DTO.csproj" />
+    <ProjectReference Include="..\ProdutosApi.Application\ProdutosApi.Application.csproj" />
+    <ProjectReference Include="..\ProdutosApi.Domain\ProdutosApi.Domain.csproj" />
     <ProjectReference Include="..\ProdutosApi.Infrastructure.CrossCutting\ProdutosApi.Infrastructure.CrossCutting.csproj" />
   </ItemGroup>
 
