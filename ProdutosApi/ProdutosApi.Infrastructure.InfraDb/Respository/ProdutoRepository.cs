@@ -20,7 +20,7 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
         //{
 
         //    var query = $@"  SELECT p.*, f.*
-        //                  FROM Autoglass.dbo.Produto p  JOIN Fornecedor  f on f.CNPJ = p.Fornecedor";
+        //                  FROM konbini.dbo.Produto p  JOIN Fornecedor  f on f.CNPJ = p.Fornecedor";
 
         //    using(var connection = _context.CreateSqlConnection())
         //    {
@@ -43,7 +43,7 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
 	                                  ,f.CNPJ as CNPJ
 	                                  ,f.CodFornecedor as CodFornecedor
 	                                  ,f.DescricaoFornecedor as DescricaoFornecedor
-                                   FROM Autoglass.dbo.Produto p JOIN Fornecedor  f on f.CNPJ = p.Fornecedor";
+                                   FROM konbini.dbo.Produto p JOIN Fornecedor  f on f.CNPJ = p.Fornecedor";
 
             using (var connection = _context.CreateSqlConnection())
             {
@@ -63,7 +63,7 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
 	                                  ,f.CNPJ as CNPJ
 	                                  ,f.CodFornecedor as CodFornecedor
 	                                  ,f.DescricaoFornecedor as DescricaoFornecedor
-                                   FROM Autoglass.dbo.Produto p JOIN Fornecedor  f on f.CNPJ = p.Fornecedor
+                                   FROM konbini.dbo.Produto p JOIN Fornecedor  f on f.CNPJ = p.Fornecedor
                                      Where p.Codigo = @id";
 
             using (var connection = _context.CreateSqlConnection())
@@ -75,7 +75,7 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
         {
 
             var query = $@"
-                        INSERT INTO Autoglass.dbo.Produto  (Descricao, Situacao, Fabricacao, Validade, Fornecedor)
+                        INSERT INTO konbini.dbo.Produto  (Descricao, Situacao, Fabricacao, Validade, Fornecedor)
                         VALUES(@Descricao, @Situacao, @Fabricacao, @Validade, @Fornecedor);
                         SELECT CAST(SCOPE_IDENTITY() as int)";
 
@@ -94,7 +94,7 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
         }
         public async Task AlterarProdutoAsync(Produto produto, int id)
         {
-            var query = $@"UPDATE Autoglass.dbo.Produto 
+            var query = $@"UPDATE konbini.dbo.Produto 
                                         SET Descricao =@Descricao,
                                         Situacao = @Situacao,
                                         Fabricacao =@Fabricacao,
@@ -117,7 +117,7 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
         }
         public async Task CancelarProdutoAsync(int codigo, bool situacao)
         {
-            var query = $@"UPDATE Autoglass.dbo.Produto  SET Situacao = @Situacao WHERE Codigo =@Codigo";
+            var query = $@"UPDATE konbini.dbo.Produto  SET Situacao = @Situacao WHERE Codigo =@Codigo";
 
             var parameters = new DynamicParameters();
             parameters.Add("Codigo", codigo, DbType.Int64);
