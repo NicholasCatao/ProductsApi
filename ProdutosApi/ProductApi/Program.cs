@@ -1,15 +1,12 @@
-using FluentValidation;
-using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.Identity;
-using ProdutosApi.Domain.Validators;
+using Microsoft.Extensions.Configuration;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Infrastructure.Ioc;
-using System.Globalization;
-using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.Configure<AppSettings>(builder.Configuration);
 
 builder.Services.RegisterServicesInjection();
 
