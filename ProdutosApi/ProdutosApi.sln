@@ -33,7 +33,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Infrastructure.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Model", "ProdutosApi.Model\ProdutosApi.Model.csproj", "{295106AB-BEC2-47B2-AA85-67C19E6A631D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Infrastructure.Common", "ProdutosApi.Infrastructure.Common\ProdutosApi.Infrastructure.Common.csproj", "{FC4B9595-77B2-4140-9FAB-B2DECA6B4A83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Infrastructure.Common", "ProdutosApi.Infrastructure.Common\ProdutosApi.Infrastructure.Common.csproj", "{FC4B9595-77B2-4140-9FAB-B2DECA6B4A83}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{80F79F18-5B67-4A86-90B6-6D46051255A7}"
+	ProjectSection(SolutionItems) = preProject
+		ProdutosTable.sql = ProdutosTable.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -96,6 +101,7 @@ Global
 		{D3DDDCE5-B04A-4EE1-BE20-754A46C19B63} = {05374BEF-FAF2-49D0-BDFF-A86FF7458D94}
 		{295106AB-BEC2-47B2-AA85-67C19E6A631D} = {132B6205-D46B-48EB-A4FD-E45F9C3C804C}
 		{FC4B9595-77B2-4140-9FAB-B2DECA6B4A83} = {05374BEF-FAF2-49D0-BDFF-A86FF7458D94}
+		{80F79F18-5B67-4A86-90B6-6D46051255A7} = {9F20DFDD-A4D9-45FD-9206-4B483BCBB90B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C313D33-4252-4428-8014-6D3BCEAE1226}
