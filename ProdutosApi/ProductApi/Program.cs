@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using ProdutosApi.Infrastructure.Cache;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Infrastructure.Ioc;
 
@@ -6,9 +7,13 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.Configure<AppSettings>(builder.Configuration);
+var configuration = builder.Configuration;
+
+builder.Services.Configure<AppSettings>(configuration);
 
 builder.Services.RegisterServicesInjection();
+
+builder.Services.UseCache(configuration);
 
 //builder.Services.AddValidatorsFromAssemblyContaining<ProdutoValidator>();
 

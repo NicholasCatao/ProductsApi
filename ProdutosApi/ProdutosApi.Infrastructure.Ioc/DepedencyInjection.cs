@@ -24,6 +24,7 @@ namespace ProdutosApi.Infrastructure.Ioc
             services.UserMappers();
             services.UseValidations();
 
+
         }
 
         public static void UseAppSeetings(this IServiceCollection services, IConfiguration configuration)
@@ -59,5 +60,6 @@ namespace ProdutosApi.Infrastructure.Ioc
         {
             services.AddScoped<IProdutoValidator, ProdutoValidator>();
         }
+      
     }
 }

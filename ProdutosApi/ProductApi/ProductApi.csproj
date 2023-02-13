@@ -15,6 +15,7 @@
     <ProjectReference Include="..\ProdutosApi.Application.DTO\ProdutosApi.Application.DTO.csproj" />
     <ProjectReference Include="..\ProdutosApi.Application\ProdutosApi.Application.csproj" />
     <ProjectReference Include="..\ProdutosApi.Domain\ProdutosApi.Domain.csproj" />
+    <ProjectReference Include="..\ProdutosApi.Infrastructure.Cache\ProdutosApi.Infrastructure.Cache.csproj" />
     <ProjectReference Include="..\ProdutosApi.Infrastructure.CrossCutting\ProdutosApi.Infrastructure.CrossCutting.csproj" />
     <ProjectReference Include="..\ProdutosApi.Infrastructure.Ioc\ProdutosApi.Infrastructure.Ioc.csproj" />
   </ItemGroup>
