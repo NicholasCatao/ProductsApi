@@ -8,10 +8,18 @@
 
   <ItemGroup>
     <PackageReference Include="FluentValidation" Version="11.4.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="7.0.1" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.27.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Extensions\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ProdutosApi.Infrastructure.CrossCutting\ProdutosApi.Infrastructure.CrossCutting.csproj" />
+    <ProjectReference Include="..\ProdutosApi.Model\ProdutosApi.Model.csproj" />
   </ItemGroup>
 
 </Project>

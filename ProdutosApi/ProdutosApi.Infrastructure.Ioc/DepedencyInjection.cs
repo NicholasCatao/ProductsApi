@@ -35,7 +35,7 @@ namespace ProdutosApi.Infrastructure.Ioc
         public static void UseApplications(this IServiceCollection services)
         {
             services.AddScoped<IProdutoAppService, ProdutoAppService>();
-            services.AddScoped<IProdutoMapper, ProdutoToProdutoDtoProfile>();
+            services.AddScoped<IProdutoMapper, ProdutoMapper>();
         }
 
         public static void UseServices(this IServiceCollection services)
@@ -51,7 +51,7 @@ namespace ProdutosApi.Infrastructure.Ioc
 
         public static void UserMappers(this IServiceCollection services)
         {
-            services.AddAutoMapper(typeof(ProdutoToProdutoDtoProfile));
+            services.AddAutoMapper(typeof(ProdutoMapper));
             //services.AddAutoMapper<ProdutoToProdutoDtoProfile>();
         }
 

@@ -5,11 +5,11 @@ using ProdutosApi.Model;
 
 namespace ProdutosApi.Application.Mappers
 {
-    public class ProdutoToProdutoDtoProfile : IProdutoMapper
+    public class ProdutoMapper : IProdutoMapper
     {
         private readonly IMapper _mapper;
 
-        public ProdutoToProdutoDtoProfile()
+        public ProdutoMapper()
         {
             var config = new MapperConfiguration(cfg =>
             {

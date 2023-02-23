@@ -15,23 +15,6 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
             _context = context;
         }
 
-        #region retorno unico
-        //public async Task<List<Produto>> ObterProdutosAsync()
-        //{
-
-        //    var query = $@"  SELECT p.*, f.*
-        //                  FROM konbini.dbo.Produto p  JOIN Fornecedor  f on f.CNPJ = p.Fornecedor";
-
-        //    using(var connection = _context.CreateSqlConnection())
-        //    {
-        //        var x = await connection.QueryAsync<Produto, Fornecedor, Produto>(query, (produto, fornecedor) => { produto.Fornecedor = fornecedor; return produto; }, splitOn: "Fornecedor");
-
-        //        return x.ToList();
-        //    }
-        //}
-        #endregion
-
-
         public async Task<IEnumerable<Produto>> ObterProdutosAsync()
         {
 

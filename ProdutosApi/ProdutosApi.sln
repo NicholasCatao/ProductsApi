@@ -40,7 +40,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{80F7
 		ProdutosTable.sql = ProdutosTable.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProdutosApi.Infrastructure.Cache", "ProdutosApi.Infrastructure.Cache\ProdutosApi.Infrastructure.Cache.csproj", "{111B4B13-0CD8-42F3-816F-B63E33727C08}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProdutosApi.Infrastructure.Cache", "ProdutosApi.Infrastructure.Cache\ProdutosApi.Infrastructure.Cache.csproj", "{111B4B13-0CD8-42F3-816F-B63E33727C08}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
