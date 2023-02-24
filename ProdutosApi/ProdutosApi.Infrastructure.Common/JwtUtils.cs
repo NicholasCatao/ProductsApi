@@ -1,23 +1,14 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ProdutosApi.Infrastructure.Common.Interfaces;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Model;
-using System;
-using System.Collections.Generic;
 using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace ProdutosApi.Infrastructure.Common
 {
-    public interface IJwtUtils
-    {
-        public string GenerateJwtToken(User user);
-        public int? ValidateJwtToken(string token);
-    }
-
     public class JwtUtils : IJwtUtils
     {
         private readonly AppSettings _appSettings;

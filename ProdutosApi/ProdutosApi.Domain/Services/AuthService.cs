@@ -23,6 +23,13 @@ namespace ProdutosApi.Domain.Services
             _options = options.Value.Secret;
         }
 
+        public async Task<User> GetUserbyIdAsync(int id)
+        {
+            return await _authRepository.GetUserbyIdAsync(id);
+        }
+
+
+
         public async Task<AuthenticateResponse> GetTokenAsync(string usermail, string password)
         {
             var user = await _authRepository.GetUserAsync(usermail, password);

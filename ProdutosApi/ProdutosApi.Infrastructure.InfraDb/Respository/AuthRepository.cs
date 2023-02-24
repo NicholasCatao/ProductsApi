@@ -14,6 +14,20 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
             _context = context;
         }
 
+        public async Task<User> GetUserbyIdAsync(int id)
+        {
+            var query = "";
+
+            var parameters = new DynamicParameters();
+
+
+            using (var connection = _context.CreateSqlConnection())
+            {
+                return await connection.QuerySingleOrDefaultAsync<User>(query);
+            }
+        }
+
+
         public async Task<User> GetUserAsync(string user, string password)
         {
             var query = "";

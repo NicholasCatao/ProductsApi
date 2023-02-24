@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Options;
 using ProdutosApi.Application.Interfaces;
 using ProdutosApi.Infrastructure.Common;
+using ProdutosApi.Infrastructure.Common.Interfaces;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 
 namespace ProductApi.Common
@@ -16,14 +17,14 @@ namespace ProductApi.Common
             _appSettings = appSettings.Value;
         }
 
-        public async Task Invoke(HttpContext context, IAuthAppService authAppService, IJwtUtils jwtUtils)
+        public async Task InvokeAsync(HttpContext context, IAuthAppService authAppService, IJwtUtils jwtUtils)
         {
             var token = context.Request.Headers["Authorization"].FirstOrDefault()?.Split(" ").Last();
             var userId = jwtUtils.ValidateJwtToken(token);
             if (userId != null)
             {
                 // attach user to context on successful jwt validation
-               // context.Items["User"] = authAppService.(userId.Value);
+                context.Items["User"] = authAppService.GetUserbyIdAsync(userId.Value);
 
             }
 

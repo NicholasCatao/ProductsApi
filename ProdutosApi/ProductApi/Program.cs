@@ -1,4 +1,5 @@
 using Microsoft.Extensions.Configuration;
+using ProductApi.Common;
 using ProdutosApi.Infrastructure.Cache;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Infrastructure.Ioc;
@@ -26,6 +27,8 @@ builder.Services.AddSwaggerGen();
 
 
 var app = builder.Build();
+
+app.UseMiddleware<JwtMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

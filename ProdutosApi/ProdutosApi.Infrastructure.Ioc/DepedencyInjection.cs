@@ -6,6 +6,8 @@ using ProdutosApi.Application.Service;
 using ProdutosApi.Domain.Interfaces;
 using ProdutosApi.Domain.Services;
 using ProdutosApi.Domain.Validators;
+using ProdutosApi.Infrastructure.Common;
+using ProdutosApi.Infrastructure.Common.Interfaces;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Infrastructure.InfraDb.DbContext;
 using ProdutosApi.Infrastructure.InfraDb.Interfaces;
@@ -23,8 +25,7 @@ namespace ProdutosApi.Infrastructure.Ioc
             services.UseRepositories();
             services.UserMappers();
             services.UseValidations();
-
-
+            services.UseJwt();
         }
 
         public static void UseAppSeetings(this IServiceCollection services, IConfiguration configuration)
@@ -35,6 +36,7 @@ namespace ProdutosApi.Infrastructure.Ioc
         public static void UseApplications(this IServiceCollection services)
         {
             services.AddScoped<IProdutoAppService, ProdutoAppService>();
+            services.AddScoped<IAuthAppService, AuthAppService>();
             services.AddScoped<IProdutoMapper, ProdutoMapper>();
         }
 
@@ -42,11 +44,13 @@ namespace ProdutosApi.Infrastructure.Ioc
         {
             services.AddScoped<DapperContext>();
             services.AddScoped<IProdutoService, ProdutoService>();
+            services.AddScoped<IAuthService, AuthService>();
         }
 
         public static void UseRepositories(this IServiceCollection services)
         {
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<IAuthRepository, AuthRepository>();
         }
 
         public static void UserMappers(this IServiceCollection services)
@@ -55,6 +59,10 @@ namespace ProdutosApi.Infrastructure.Ioc
             //services.AddAutoMapper<ProdutoToProdutoDtoProfile>();
         }
 
+        public static void UseJwt(this IServiceCollection services)
+        {
+            services.AddScoped<IJwtUtils, JwtUtils>();
+        }
 
         public static void UseValidations(this IServiceCollection services)
         {
