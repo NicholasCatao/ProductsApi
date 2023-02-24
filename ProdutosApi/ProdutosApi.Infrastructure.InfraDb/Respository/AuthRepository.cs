@@ -2,6 +2,7 @@
 using ProdutosApi.Infrastructure.InfraDb.DbContext;
 using ProdutosApi.Infrastructure.InfraDb.Interfaces;
 using ProdutosApi.Model;
+using System.Data;
 
 namespace ProdutosApi.Infrastructure.InfraDb.Respository
 {
@@ -16,24 +17,21 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
 
         public async Task<User> GetUserbyIdAsync(int id)
         {
-            var query = "";
-
-            var parameters = new DynamicParameters();
-
+            var query = "SELECT * FROM UserInfo WHERE ID = @ID";
 
             using (var connection = _context.CreateSqlConnection())
             {
-                return await connection.QuerySingleOrDefaultAsync<User>(query);
+                return await connection.QuerySingleOrDefaultAsync<User>(query, new { id });
             }
         }
 
-
-        public async Task<User> GetUserAsync(string user, string password)
+        public async Task<User> GetUserAsync(string email, string password)
         {
-            var query = "";
+            var query = "SELECT * FROM UserInfo WHERE EMAIL = @email and PASSWORD = @password";
 
             var parameters = new DynamicParameters();
-
+            parameters.Add("email", email, DbType.String);
+            parameters.Add("email", password, DbType.String);
             
            using(var connection = _context.CreateSqlConnection())
             {
