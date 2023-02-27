@@ -24,7 +24,7 @@ namespace ProductApi.Common
             if (userId != null)
             {
                 // attach user to context on successful jwt validation
-                context.Items["User"] = authAppService.GetUserbyIdAsync(userId.Value);
+                context.Items["User"] = authAppService.GetUserbyIdAsync(Convert.ToInt32(userId));
 
             }
 

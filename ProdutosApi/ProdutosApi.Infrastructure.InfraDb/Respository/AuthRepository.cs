@@ -31,11 +31,11 @@ namespace ProdutosApi.Infrastructure.InfraDb.Respository
 
             var parameters = new DynamicParameters();
             parameters.Add("email", email, DbType.String);
-            parameters.Add("email", password, DbType.String);
+            parameters.Add("password", password, DbType.String);
             
            using(var connection = _context.CreateSqlConnection())
             {
-                return await connection.QuerySingleOrDefaultAsync<User>(query);
+                return await connection.QuerySingleOrDefaultAsync<User>(query, parameters);
             }
         }
     }

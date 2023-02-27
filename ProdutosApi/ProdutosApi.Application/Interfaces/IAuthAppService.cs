@@ -6,6 +6,6 @@ namespace ProdutosApi.Application.Interfaces
     public interface IAuthAppService
     {
         Task<User> GetUserbyIdAsync(int id);
-        Task<AuthenticateResponse> GetToken(string userMail, string password);
+        Task<AuthenticateResponse> GetTokenAsync(string userMail, string password);
     }
 }

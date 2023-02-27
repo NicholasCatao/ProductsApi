@@ -1,8 +1,13 @@
-﻿namespace ProdutosApi.Domain.Enums
+﻿using System.ComponentModel;
+
+namespace ProdutosApi.Domain.Enums
 {
     public enum Role
     {
-        Admin,
-        User
+
+        [Description("Admin")]
+        Admin  = 0,
+        [Description("User")]
+        User = 1
     }
 }

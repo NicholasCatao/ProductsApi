@@ -33,7 +33,7 @@ namespace ProdutosApi.Infrastructure.Common
             return tokenHandler.WriteToken(token);
         }
 
-        public int? ValidateJwtToken(string token)
+        public string? ValidateJwtToken(string token)
         {
             if (token == null)
                 return null;
@@ -56,7 +56,7 @@ namespace ProdutosApi.Infrastructure.Common
                 var userId = int.Parse(jwtToken.Claims.First(x => x.Type == "id").Value);
 
                 // return user id from JWT token if validation successful
-                return userId;
+                return userId.ToString();
             }
             catch
             {

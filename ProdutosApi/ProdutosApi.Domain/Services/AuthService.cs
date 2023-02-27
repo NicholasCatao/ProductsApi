@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
+using ProdutosApi.Domain.Enums;
 using ProdutosApi.Domain.Interfaces;
 using ProdutosApi.Domain.Response;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
@@ -15,7 +16,7 @@ namespace ProdutosApi.Domain.Services
     {
         private readonly IAuthRepository _authRepository;
         private readonly string _options;
-        
+
 
         public AuthService(IAuthRepository authRepository, IOptions<AppSettings> options)
         {
@@ -36,17 +37,17 @@ namespace ProdutosApi.Domain.Services
 
             if (user is null) throw new ArgumentException("xxxxxx");
 
-            var token =  GenerateJwtToken(user);
+            var token = GenerateJwtToken(user);
 
             return new AuthenticateResponse
             {
                 Id = user.Id,
                 Token = token,
-                Role = (Enums.Role)user.Role
+                Role = (Role)Enum.Parse(typeof(Role), user.Role.ToString())
             };
 
         }
-            
+
 
         private string GenerateJwtToken(User user)
         {

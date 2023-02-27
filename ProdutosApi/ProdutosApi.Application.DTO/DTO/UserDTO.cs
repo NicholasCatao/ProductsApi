@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace ProdutosApi.Application.DTO.DTO
 {
-    public class UserDTO
+    public record struct UserDTO
     {
         [Required]
         public string Email { get; set; }

@@ -18,7 +18,7 @@ namespace ProdutosApi.Application.Service
         {
             return await _authService.GetUserbyIdAsync(id);
         }
-        public async Task<AuthenticateResponse> GetToken(string userMail, string password)
+        public async Task<AuthenticateResponse> GetTokenAsync(string userMail, string password)
         {
             return await _authService.GetTokenAsync(userMail, password);
         }
