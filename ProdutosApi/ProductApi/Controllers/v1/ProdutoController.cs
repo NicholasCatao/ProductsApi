@@ -1,12 +1,8 @@
-﻿using FluentValidation.Results;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using ProdutosApi.Application.DTO.DTO;
 using ProdutosApi.Application.Interfaces;
-using ProdutosApi.Domain.Enums;
 using ProdutosApi.Domain.Interfaces;
 using ProdutosApi.Domain.Resquest;
-using ProdutosApi.Domain.Validators;
 using ProdutosApi.Model;
 
 namespace ProductApi.Controllers.v1
