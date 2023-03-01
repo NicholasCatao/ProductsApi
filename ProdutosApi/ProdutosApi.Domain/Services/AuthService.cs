@@ -6,6 +6,7 @@ using ProdutosApi.Domain.Response;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Infrastructure.InfraDb.Interfaces;
 using ProdutosApi.Model;
+using System.Drawing;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
@@ -43,7 +44,7 @@ namespace ProdutosApi.Domain.Services
             {
                 Id = user.Id,
                 Token = token,
-                Role = (Role)Enum.Parse(typeof(Role), user.Role.ToString())
+                Role = Enum.GetName(typeof(Role), user.Role)
             };
 
         }

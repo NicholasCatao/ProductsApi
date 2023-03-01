@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Mvc;
+using ProductApi.Extensions;
 using ProdutosApi.Application.DTO.DTO;
 using ProdutosApi.Application.Interfaces;
+using ProdutosApi.Domain.Enums;
 using ProdutosApi.Domain.Interfaces;
 using ProdutosApi.Domain.Resquest;
 using ProdutosApi.Model;
@@ -25,6 +29,7 @@ namespace ProductApi.Controllers.v1
         [ProducesResponseType(StatusCodes.Status401Unauthorized, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status404NotFound, Type = typeof(string))]
         [ProducesResponseType(StatusCodes.Status500InternalServerError, Type = typeof(string))]
+        [Authorize(Roles = RoleExtensions.User)]
         public async Task<IActionResult> ObterProdutosAsync([FromQuery] FiltroProduto filtroProduto)
         {
             var result = await _produtoAppService.ObterProdutosAsync(filtroProduto);
