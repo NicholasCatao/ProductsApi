@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using ProductApi.Common;
@@ -7,6 +9,7 @@ using ProdutosApi.Infrastructure.Cache;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 using ProdutosApi.Infrastructure.Ioc;
 using System.Text;
+using static Dapper.SqlMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -56,26 +59,39 @@ builder.Services.AddSwaggerGen(opt =>
     });
 });
 
-builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+//builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJwtBearer(options =>
+//{
+//    options.RequireHttpsMetadata = false;
+//    options.SaveToken = true;
+//    options.TokenValidationParameters = new TokenValidationParameters()
+//    {
+//        ValidateIssuer = false,
+//        ValidateAudience = false,
+//        //ValidAudience = configuration.GetValue<string>("Audience"),
+//        //ValidIssuer = configuration.GetValue<string>("Issuer"),
+//        IssuerSigningKey = new SymmetricSecurityKey(configuration.GetValue<byte[]>("Secret"))
+//    };
+//});
+
+builder.Services.AddAuthentication(x =>
 {
-    options.RequireHttpsMetadata = false;
-    options.SaveToken = true;
-    options.TokenValidationParameters = new TokenValidationParameters()
+    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(x =>
+{
+    x.RequireHttpsMetadata = false;
+    x.SaveToken = true;
+    x.TokenValidationParameters = new TokenValidationParameters
     {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidAudience = configuration.GetValue<string>("Audience"),
-        ValidIssuer = configuration.GetValue<string>("Issuer"),
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration.GetValue<string>("Secret")))
+        ValidateIssuerSigningKey = true,
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.ASCII.GetBytes(configuration["Secret"])),
+        ValidateIssuer = false,
+        ValidateAudience = false
     };
 });
 
-
-builder.Services.AddAuthorization();
-
 var app = builder.Build();
 
-app.UseMiddleware<JwtMiddleware>();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -83,6 +99,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+//app.UseMiddleware<JwtMiddleware>();
 
 app.UseHttpsRedirection();
 

@@ -8,8 +8,10 @@ using ProdutosApi.Infrastructure.InfraDb.Interfaces;
 using ProdutosApi.Model;
 using System.Drawing;
 using System.IdentityModel.Tokens.Jwt;
+using System.Runtime.ConstrainedExecution;
 using System.Security.Claims;
 using System.Text;
+using static Dapper.SqlMapper;
 
 namespace ProdutosApi.Domain.Services
 {
@@ -50,15 +52,38 @@ namespace ProdutosApi.Domain.Services
         }
 
 
-        private string GenerateJwtToken(User user)
+        //private string GenerateJwtToken(User user)
+        //{
+        //    // generate token that is valid for 7 days
+        //    var tokenHandler = new JwtSecurityTokenHandler();
+        //    var key = Encoding.ASCII.GetBytes(_options);
+        //    var tokenDescriptor = new SecurityTokenDescriptor
+        //    {
+        //        Subject = new ClaimsIdentity(new List<Claim>
+        //        {
+        //            new Claim("id", user.Id.ToString()),
+        //            new Claim(ClaimTypes.Role, user.Role.ToString()),
+        //        }),
+        //        //Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
+        //        Expires = DateTime.UtcNow.AddDays(7),
+        //        SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
+        //    };
+        //    var token = tokenHandler.CreateToken(tokenDescriptor);
+        //    return tokenHandler.WriteToken(token);
+        //}
+
+        public string GenerateJwtToken(User user)
         {
-            // generate token that is valid for 7 days
             var tokenHandler = new JwtSecurityTokenHandler();
-            var key = Encoding.ASCII.GetBytes(_options);
+            var key = Encoding.ASCII.GetBytes(_options); // Private Key
             var tokenDescriptor = new SecurityTokenDescriptor
             {
-                Subject = new ClaimsIdentity(new[] { new Claim("id", user.Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddDays(7),
+                Subject = new ClaimsIdentity(new Claim[]
+                {
+                     new Claim("id", user.Id.ToString()),
+                     new Claim(ClaimTypes.Role, Enum.GetName(typeof(Role), user.Role)),
+                }),
+                Expires = DateTime.UtcNow.AddHours(2),
                 SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(key), SecurityAlgorithms.HmacSha256Signature)
             };
             var token = tokenHandler.CreateToken(tokenDescriptor);

@@ -1,6 +1,5 @@
 ﻿using Microsoft.Extensions.Options;
 using ProdutosApi.Application.Interfaces;
-using ProdutosApi.Infrastructure.Common;
 using ProdutosApi.Infrastructure.Common.Interfaces;
 using ProdutosApi.Infrastructure.CrossCutting.Model;
 

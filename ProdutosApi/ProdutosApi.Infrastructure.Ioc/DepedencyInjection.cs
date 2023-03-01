@@ -64,6 +64,7 @@ namespace ProdutosApi.Infrastructure.Ioc
             services.AddScoped<IJwtUtils, JwtUtils>();
         }
 
+
         public static void UseValidations(this IServiceCollection services)
         {
             services.AddScoped<IProdutoValidator, ProdutoValidator>();
